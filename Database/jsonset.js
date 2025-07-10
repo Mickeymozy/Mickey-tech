@@ -12,16 +12,16 @@ function getDefaultStructure() {
             presence: "online",
             autoview: true,
             autolike: true,
-            autoread: true,
+            autoread: false,
             autobio: false,
-            anticall: true,
+            anticall: false,
             reactEmoji: "❤️"
         },
         groupDefaults: {
             antitag: true,
             antidelete: true,
             gcpresence: false,
-            antiforeign: true,
+            antiforeign: false,
             antidemote: false,
             antipromote: true,
             events: false,
@@ -30,8 +30,8 @@ function getDefaultStructure() {
         groupSettings: {},
         bannedUsers: [],
         sudoUsers: [
-            "254114018035",
-            "254741889898"
+            "255612130873",
+            "255711765335"
         ],
         conversationHistory: {}
     };
