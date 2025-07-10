@@ -1,0 +1,32 @@
+{
+  "globalSettings": {
+    "botname": "mickey-tech",
+    "prefix": ".",
+    "packname": "dreaded v2 🤖",
+    "mode": "public",
+    "presence": "unavailable",
+    "autoview": true,
+    "autolike": true,
+    "autoread": true,
+    "autobio": false,
+    "anticall": true,
+    "reactEmoji": "❤️"
+  },
+  "groupDefaults": {
+    "antitag": true,
+    "antidelete": true,
+    "gcpresence": false,
+    "antiforeign": true,
+    "antidemote": false,
+    "antipromote": true,
+    "events": false,
+    "antilink": true
+  },
+  "groupSettings": {},
+  "bannedUsers": [],
+  "sudoUsers": [
+    "255711765335",
+    "255612130873"
+  ],
+  "conversationHistory": {}
+}

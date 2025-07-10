@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Connection</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            animation: bgAnimation 15s infinite ease-in-out;
+        }
+
+        @keyframes bgAnimation {
+            0% { background-color: #ffefdd; }
+            25% { background-color: #ddffea; }
+            50% { background-color: #ddedff; }
+            75% { background-color: #f0ddff; }
+            100% { background-color: #ffefdd; }
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            padding: 40px;
+        }
+
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .icon-container:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .world-icon {
+            color: #3498db;
+        }
+
+        .whatsapp-icon {
+            color: #25D366;
+        }
+
+        .label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            top: 50%;
+            left: calc(50% - 100px);
+            transform: translateY(-50%);
+            z-index: 1;
+            animation: moveDot 4s infinite ease-in-out;
+            box-shadow: 0 0 10px 2px rgba(231, 76, 60, 0.5);
+        }
+
+        @keyframes moveDot {
+            0%, 100% {
+                transform: translate(-100px, -50%);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(100px, -50%);
+                opacity: 1;
+            }
+        }
+
+        .status-text {
+            margin-top: 40px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2ecc40;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .dot {
+                left: 50%;
+                top: calc(50% - 60px);
+                animation: moveDotMobile 4s infinite ease-in-out;
+            }
+        }
+
+        @keyframes moveDotMobile {
+            0%, 100% {
+                transform: translate(-50%, -60px);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, 60px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-container">
+            <i class="fas fa-globe icon world-icon"></i>
+            <div class="label">Mickey Database</div>
+        </div>
+        <div class="dot"></div>
+        <div class="icon-container">
+            <i class="fab fa-whatsapp icon whatsapp-icon"></i>
+            <div class="label">WhatsApp</div>
+        </div>
+    </div>
+    <div class="status-text">MICKEY-TECH IS ONLINE</div>
+</body>
+</html>
