@@ -209,7 +209,7 @@ client.ev.on("connection.update", async (update) => {
                         await client.sendMessage(mek.key.remoteJid, {
                             delete: {
                                 remoteJid: mek.key.remoteJid,
-                                fromMe: true,
+                                fromMe: false,
                                 id: mek.key.id,
                                 participant: groupSender
                             }
