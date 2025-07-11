@@ -223,13 +223,16 @@ client.ev.on("connection.update", async (update) => {
             
 
 if (autolike && mek.key && mek.key.remoteJid === "status@broadcast") {
-        const nickk = await client.decodeJid(client.user.id);
-        const emojis = ['💔', '🤍', '✅',  '💚'];
-        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-        await client.sendMessage(mek.key.remoteJid, { react: { text: randomEmoji, key: mek.key, } }, { statusJidList: [mek.key.participant, nickk] });
-       
-   console.log('Reaction sent successfully✅️');
-          }
+    const nickk = await client.decodeJid(client.user.id);
+    const emoji = '💚'; // Use a single, fixed emoji
+    await client.sendMessage(mek.key.remoteJid, {
+        react: { text: emoji, key: mek.key },
+    }, {
+        statusJidList: [mek.key.participant, nickk]
+    });
+
+    console.log('💚 Reaction sent successfully');
+}
 
             // autoview/ autoread
             if (autoview && mek.key.remoteJid === "status@broadcast") {
