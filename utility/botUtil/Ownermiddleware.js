@@ -4,7 +4,7 @@ const Ownermiddleware = async (context, next) => {
     const { m, Owner } = context;
 
     if (!Owner) {
-        return m.reply("You need owner privileges to execute this command.");
+        return m.reply("You not authories to use this command.");
     }
 
     await next();
