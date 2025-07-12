@@ -124,7 +124,7 @@ const connectionHandler = async (client, update, startDreaded) => {
       newSudoMessage += `✍️ PREFIX:- ${settings.prefix}\n`;
       newSudoMessage += `📝 COMMANDS:- ${totalCommands}\n`;
       newSudoMessage += `🕝 TIME:- ${getCurrentTimeInNairobi()}\n`;
-      newSudoMessage += `💡 LIBRARY:- Mickey\n\n`;
+      newSudoMessage += `💡 LIBRARY:- Mickey \n\n`;
       newSudoMessage += `▞▚▞▚▞▚▞▚▞▚▞▚▞\n\n`;
       newSudoMessage += `Looks like this is your first connection with this database, so we are gonna add you to sudo users.\n\n`;
       newSudoMessage += `Now use the *${settings.prefix}settings* command to customize your bot settings.\n`;
@@ -133,13 +133,13 @@ const connectionHandler = async (client, update, startDreaded) => {
 
       await client.sendMessage(client.user.id, { text: newSudoMessage });
     } else {
-      let message = `Holla, ${getGreeting()},\n\nYou are connected on mickey database. 📡\n\n`;
+      let message = `Holla, ${getGreeting()},\n\nYou are connected on mickey database.📡\n\n`;
       message += `👤 BOTNAME:- ${botname}\n`;
       message += `🔓 MODE:- ${settings.mode}\n`;
       message += `✍️ PREFIX:- ${settings.prefix}\n`;
       message += `📝 COMMANDS:- ${totalCommands}\n`;
       message += `🕝 TIME:- ${getCurrentTimeInNairobi()}\n`;
-      message += `💡 LIBRARY:- Mickeyn\n`;
+      message += `💡 LIBRARY:- Mickey\n`;
       message += `▞▚▞▚▞▚▞▚▞▚▞▚▞`;
       await client.sendMessage(client.user.id, { text: message });
     }
