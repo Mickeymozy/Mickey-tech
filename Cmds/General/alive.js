@@ -2,6 +2,7 @@
 
 module.exports = async (context) => {
     const { client, m, prefix } = context;
+const audioUrl = "https://files.catbox.moe/3jcl13.mp3";
 
 const botname = process.env.BOTNAME || "MICKEY-TECH";
 
