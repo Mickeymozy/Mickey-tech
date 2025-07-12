@@ -12,7 +12,7 @@ module.exports = async (context) => {
 
     // Send audio file
     await client.sendMessage(m.chat, {
-        audio: { url: 'https://files.catbox.moe/9hhn8p.mp3 }, 
+        audio: { url: 'https://files.catbox.moe/9hhn8p.mp3' }, 
         mimetype: 'audio/mp4',
         ptt: true // Set to true for push-to-talk (voice note style), false for regular audio
     }, { quoted: m });
