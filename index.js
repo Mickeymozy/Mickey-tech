@@ -1,2 +1,2 @@
-/* bfuscated by Mickeytech*/
+/* obfuscated by Mickeytech*/
 require("./Client/index.js");
