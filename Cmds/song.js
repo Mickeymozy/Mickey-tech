@@ -15,7 +15,7 @@ module.exports = async (context) => {
 
         const song = videos[0];
 
-        const response = await fetch(`http://music.dreaded.site:3000/api/yt?url=${song.url}&format=mp3`, {
+        const response = await fetch(`https://apis.davidcyriltech.my.id/song?url=${song.url}, {
             method: 'GET',
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
