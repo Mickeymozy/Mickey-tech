@@ -30,8 +30,8 @@ module.exports = async (context) => {
 
         await client.sendMessage(m.chat, {
             document: { url: data.result.download_url },
-            mimetype: "video/mp4",
-            fileName: `${data.result.title}.mp3`
+            mimetype: "audio/mpeg",
+            fileName: `${data.result.title}.mpeg`
         }, { quoted: m });
 
     } catch (error) {
