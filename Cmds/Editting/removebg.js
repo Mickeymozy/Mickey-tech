@@ -13,7 +13,7 @@ let fdr = await client.downloadAndSaveMediaMessage(m.quoted)
 
 
                     let fta = await uploadtoimgur(fdr)
-                    m.reply("A moment, dreaded is erasing the background. . .");
+                    m.reply("A moment,  erasing the background. . .");
 
 const image = `https://api.dreaded.site/api/removebg?imageurl=${fta}`
 
