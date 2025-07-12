@@ -1,6 +1,6 @@
-/* 
+
 module.exports = {
-    name: "wa-channel",
+    name: "channel",
     aliases: ["channel", "channelstalk"], 
     run: async ({ client, m, text }) => {
 
