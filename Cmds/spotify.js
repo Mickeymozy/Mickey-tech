@@ -7,7 +7,7 @@ module.exports = async (context) => {
 try {
 
 
-        let data = await fetchJson(`https://api.dreaded.site/api/spotifydl?title=${text}`);
+        let data = await fetchJson(`ttps://apis.davidcyriltech.my.id/spotifydl2?title=${text}`);
 
 if (data.success) {
 
