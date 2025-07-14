@@ -1,4 +1,4 @@
-mmconst yts = require("yt-search");
+const yts = require("yt-search");
 const fetch = require("node-fetch");
 
 module.exports = async (context) => {
