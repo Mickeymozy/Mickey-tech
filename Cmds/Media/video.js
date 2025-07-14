@@ -5,43 +5,48 @@ module.exports = async (context) => {
     const { client, m, text } = context;
 
     if (!text) {
-        return m.reply("🔎 Tafadhali andika jina la wimbo unalotaka.");
+        return m.reply("🎬 Tafadhali andika jina la video au wimbo unalotaka.");
     }
 
     try {
-        // Tafuta wimbo YouTube
+        // Tafuta video kwenye YouTube
         const { videos } = await yts(text);
         if (!videos || videos.length === 0) {
-            return m.reply("🚫 Samahani, siwezi kupata wimbo huo.");
+            return m.reply("🚫 Samahani, siwezi kupata video hiyo.");
         }
 
-        const song = videos[0];
+        const video = videos[0];
+        const videoUrl = video.url;
 
-        // Pata audio download link kutoka kwa API
-        const apiUrl = `https://apis.davidcyriltech.my.id/play?query=${encodeURIComponent(song.url)}`;
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`API haijajibu vizuri. Status: ${response.status}`);
+        // Pitia API ya /youtube/mp4
+        const apiResponse = await fetch(`https://apis.davidcyriltech.my.id/youtube/mp4?query=${encodeURIComponent(videoUrl)}`);
+
+        if (!apiResponse.ok) {
+            throw new Error(`API haijajibu vizuri. Status: ${apiResponse.status}`);
         }
 
-        const data = await response.json();
-        if (!data?.result?.download_url) {
-            throw new Error("⛔ Hakuna link ya kupakua audio kutoka kwa API.");
+        const data = await apiResponse.json();
+
+        if (!data?.result?.url || !data?.result?.title) {
+            throw new Error("⛔ Hakuna video URL kwenye majibu ya API.");
         }
 
-        // Tuma ujumbe wa kuwa inapakua
-        await m.reply(`⬇️ Inapakua: *${data.result.title}*`);
+        const downloadUrl = data.result.url;
+        const title = data.result.title;
 
-        // Tuma audio kama sauti ya kawaida (si voice note)
+        // Tuma ujumbe wa kuanza
+        await m.reply(`📤 Inatuma video: *${title}*`);
+
+        // Tuma video kwa WhatsApp
         await client.sendMessage(m.chat, {
-            audio: { url: data.result.download_url },
-            mimetype: "audio/mpeg",
-            fileName: `${data.result.title}.mp3`,
-            ptt: false // weka true kama unataka voice note
+            video: { url: downloadUrl },
+            mimetype: "video/mp4",
+            fileName: `${title}.mp4`,
+            caption: `🎬 ${title}`
         }, { quoted: m });
 
     } catch (error) {
         console.error("❌ Error:", error.message);
-        await m.reply("⚠️ Imeshindikana kupakua wimbo: " + error.message);
+        await m.reply("⚠️ Imeshindikana kutuma video: " + error.message);
     }
 };
