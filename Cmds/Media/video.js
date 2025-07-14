@@ -2,70 +2,76 @@ const yts = require("yt-search");
 const fetch = require("node-fetch");
 
 module.exports = async (context) => {
-    const { client, m, text, command } = context;
+  const { client, m, text, command } = context;
 
-    // Kama user amebofya button ya quality
-    if (command === "dlvid") {
-        try {
-            const [url, title, quality] = text.split("|");
+  const sendError = async (msg, error) => {
+    console.error(error?.message || error);
+    await m.reply(`⚠️ ${msg}: ${error?.message || error}`);
+  };
 
-            if (!url || !title || !quality) {
-                return m.reply("⛔ Format ya data si sahihi.");
-            }
+  const handleVideoDownload = async () => {
+    try {
+      const [url, title, quality] = text.split("|");
 
-            await m.reply(`📥 Inapakua *${title}* katika ubora wa *${quality}*...`);
+      if (!url || !title || !quality) {
+        return m.reply("⛔ Format ya data si sahihi.");
+      }
 
-            await client.sendMessage(m.chat, {
-                video: { url },
-                mimetype: "video/mp4",
-                fileName: `${title} - ${quality}.mp4`,
-                caption: `🎬 ${title} (${quality})`
-            }, { quoted: m });
+      await m.reply(`📥 Inapakua *${title}* katika ubora wa *${quality}*...`);
 
-        } catch (err) {
-            console.error(err.message);
-            await m.reply("⚠️ Imeshindikana kutuma video: " + err.message);
-        }
+      await client.sendMessage(m.chat, {
+        video: { url },
+        mimetype: "video/mp4",
+        fileName: `${title} - ${quality}.mp4`,
+        caption: `🎬 ${title} (${quality})`,
+      }, { quoted: m });
 
-        return; // tunatoka hapa
+    } catch (error) {
+      await sendError("Imeshindikana kutuma video", error);
     }
+  };
 
-    // Kama user ametuma jina la video kutafuta
-    if (!text) return m.reply("🎬 Tafadhali andika jina la video au wimbo unalotaka.");
+  const handleVideoSearch = async () => {
+    if (!text) {
+      return m.reply("🎬 Tafadhali andika jina la video au wimbo unalotaka.");
+    }
 
     try {
-        const { videos } = await yts(text);
-        if (!videos || videos.length === 0) {
-            return m.reply("🚫 Samahani, hakuna video iliyopatikana.");
-        }
+      const { videos } = await yts(text);
+      if (!videos || videos.length === 0) {
+        return m.reply("🚫 Samahani, hakuna video iliyopatikana.");
+      }
 
-        const video = videos[0];
+      const video = videos[0];
+      const response = await fetch(`https://apis.davidcyriltech.my.id/youtube/mp4?query=${encodeURIComponent(video.url)}`);
+      const data = await response.json();
 
-        const api = await fetch(`https://apis.davidcyriltech.my.id/youtube/mp4?query=${encodeURIComponent(video.url)}`);
-        const data = await api.json();
+      const { result } = data;
+      if (!result?.url || !result?.formats) {
+        throw new Error("API haijarudisha links za video.");
+      }
 
-        if (!data?.result?.url || !data?.result?.formats) {
-            throw new Error("API haijarudisha links za video.");
-        }
+      const buttons = result.formats.map((format) => ({
+        buttonId: `dlvid ${format.url}|${result.title}|${format.quality}`,
+        buttonText: { displayText: `📥 ${format.quality}` },
+        type: 1,
+      }));
 
-        const formats = data.result.formats;
+      await client.sendMessage(m.chat, {
+        image: { url: video.thumbnail },
+        caption: `🎞 *${result.title}*\n\nChagua ubora wa video kupakua 👇`,
+        buttons,
+        headerType: 4,
+      }, { quoted: m });
 
-        // Panga buttons kwa kila quality
-        const buttons = formats.map((format, index) => ({
-            buttonId: `dlvid ${format.url}|${data.result.title}|${format.quality}`,
-            buttonText: { displayText: `📥 ${format.quality}` },
-            type: 1
-        }));
-
-        await client.sendMessage(m.chat, {
-            image: { url: video.thumbnail },
-            caption: `🎞 *${data.result.title}*\n\nChagua ubora wa video kupakua 👇`,
-            buttons,
-            headerType: 4
-        }, { quoted: m });
-
-    } catch (err) {
-        console.error(err.message);
-        await m.reply("⚠️ Imeshindikana kutafuta video: " + err.message);
+    } catch (error) {
+      await sendError("Imeshindikana kutafuta video", error);
     }
+  };
+
+  if (command === "dlvid") {
+    return handleVideoDownload();
+  }
+
+  await handleVideoSearch();
 };
