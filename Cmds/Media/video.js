@@ -1,4 +1,4 @@
-const yts = require("yt-search");
+mmconst yts = require("yt-search");
 const fetch = require("node-fetch");
 
 module.exports = async (context) => {
@@ -30,7 +30,7 @@ module.exports = async (context) => {
 
         await client.sendMessage(m.chat, {
             document: { url: data.result.download_url },
-            mimetype: "video/mpeg",
+            mimetype: "video/mp4",
             fileName: `${data.result.title}.m4a`
         }, { quoted: m });
 
