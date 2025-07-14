@@ -5,37 +5,43 @@ module.exports = async (context) => {
     const { client, m, text } = context;
 
     if (!text) {
-        return m.reply("Please provide a song name!");
+        return m.reply("🔎 Tafadhali andika jina la wimbo unalotaka.");
     }
 
     try {
+        // Tafuta wimbo YouTube
         const { videos } = await yts(text);
         if (!videos || videos.length === 0) {
-            throw new Error("No songs found!");
+            return m.reply("🚫 Samahani, siwezi kupata wimbo huo.");
         }
 
         const song = videos[0];
 
-        const response = await fetch(`https://apis.davidcyriltech.my.id/play?query=${encodeURIComponent(song.url)}`);
+        // Pata audio download link kutoka kwa API
+        const apiUrl = `https://apis.davidcyriltech.my.id/play?query=${encodeURIComponent(song.url)}`;
+        const response = await fetch(apiUrl);
         if (!response.ok) {
-            throw new Error(`Download failed with status ${response.status}`);
+            throw new Error(`API haijajibu vizuri. Status: ${response.status}`);
         }
 
         const data = await response.json();
         if (!data?.result?.download_url) {
-            throw new Error("Audio URL missing in API response.");
+            throw new Error("⛔ Hakuna link ya kupakua audio kutoka kwa API.");
         }
 
-        await m.reply(`_Downloading ${data.result.title}_`);
+        // Tuma ujumbe wa kuwa inapakua
+        await m.reply(`⬇️ Inapakua: *${data.result.title}*`);
 
+        // Tuma audio kama sauti ya kawaida (si voice note)
         await client.sendMessage(m.chat, {
-            document: { url: data.result.download_url },
-            mimetype: "video/mp4",
-            fileName: `${data.result.title}`
+            audio: { url: data.result.download_url },
+            mimetype: "audio/mpeg",
+            fileName: `${data.result.title}.mp3`,
+            ptt: false // weka true kama unataka voice note
         }, { quoted: m });
 
     } catch (error) {
-        console.error("Error in play command:", error.message);
-        return m.reply("Download failed: " + error.message);
+        console.error("❌ Error:", error.message);
+        await m.reply("⚠️ Imeshindikana kupakua wimbo: " + error.message);
     }
 };
