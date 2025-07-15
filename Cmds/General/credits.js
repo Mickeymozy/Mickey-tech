@@ -8,7 +8,7 @@ module.exports = async (context) => {
     // Send image with caption
     await client.sendMessage(m.chat, {
         image: { url: 'https://files.catbox.moe/ljabyq.png' },
-        caption: `To any payment services those is payment methods:\n\n -Halotel ➪ Tanzania\n - number 0615944741 name; MICKDADI HAMZA\n\n -Yas ➪ AfricaAa\n - number 0711765335 name; MOSSI MATUMLA \n\n\n- NMB ➪ BANK\n - For bank user waiting until develop card.\n\n{mickey-tech} シ︎`
+        caption: `To any payment services those is payment methods:\n\n -Halotel ➪ Tanzania\n - number 0615944741 name; MICKDADI HAMZA\n\n -Yas ➪ Africa\n - number 0711765335 name; MOSSI MATUMLA \n\n\n- NMB ➪ BANK\n - For bank user waiting until develop card.\n\n{make payments on time } `
     });
 
     // Send audio after image
