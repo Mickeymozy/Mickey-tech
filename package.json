@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@hapi/boom": "^10.0.0",
-    "@whiskeysockets/baileys": "git+https://github.com/Fortunatusmokaya/Baileys.git",
+    "@whiskeysockets/baileys": "git+https://github.com/WhiskeySockets/Baileys.git",
     "acrcloud": "^1.4.0",
     "axios": "^1.3.6",
     "awesome-phonenumber": "latest",
@@ -62,7 +62,7 @@
     "url": "git+https://github.com/Mickeymozy/Mickey-tech.git"
   },
   "bugs": {
-    "url": "https://github.com/Fortunatusmokaya/dreaded-v2/issues"
+    "url": "https://github.com/Mickeymozy/Mickey-tech./issues"
   },
-  "homepage": "https://github.com/Fortunatusmokaya/dreaded-v2#readme"
+  "homepage": "https://github.com/Mickeymozy/Mickey-tech.#readme"
 }
