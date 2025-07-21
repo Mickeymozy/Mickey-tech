@@ -14,6 +14,6 @@ module.exports = async (context) => {
     await client.sendMessage(m.chat, {
         video: { url: 'https://files.catbox.moe/4hof04.mp4' }, 
         mimetype: 'video/mp4',
-        caption: `Here’s a quick intro video from Mickey-tech. 🚀`
+        caption: `⚡ Beep-boop! Vital signs: 💯. Mood: electric. Status: alive and kickin' like a caffeinated kangaroo! 🦘☕⚡. 🚀`
     }, { quoted: m });
 }
