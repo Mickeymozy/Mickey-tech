@@ -6,13 +6,13 @@ module.exports = async (context) => {
     // Send image with caption
     await client.sendMessage(m.chat, {
         image: { url: 'https://files.catbox.moe/yaegaz' },
-        caption: `Hello ${m.pushName}, Mickey-tech is active now.\n\nType ${prefix}menu to see my command list..\n\nDont forget to fork and star my repo.\n\nhttps://github.com/Mickeymozy/Mickey-tech`,
+        caption: `Hey hey! ${m.pushName}, ⚡️ You’ve just summoned a friendly cyber ghost. What’s your command?.\n\nThe repo master holds the keys—ping 'em!`,
         fileLength: "9999999999898989899999999"
     }, { quoted: m });
 
-    // Send video file instead of audio
+    // Send video file instead of video
     await client.sendMessage(m.chat, {
-        video: { url: 'https://files.catbox.moe/q1po5c.gif' }, 
+        video: { url: 'https://files.catbox.moe/l7d2gk.mp4' }, 
         caption: `⚡ Beep-boop! Vital signs: 💯. Mood: electric. Status: alive and kickin' like a caffeinated kangaroo! 🦘☕⚡. 🚀`
     }, { quoted: m });
 }
