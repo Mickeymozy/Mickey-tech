@@ -10,7 +10,7 @@ module.exports = async (context) => {
 
         try {
 
-            const primaryData = await fetchJson(`https://apis.davidcyriltech.my.id/download/ytmp4?url=${text}`);
+            const primaryData = await fetchJson(`https://apis-keith.vercel.app/download/dlmp4?url=${text}`);
             if (!primaryData.success || !primaryData.result || !primaryData.result.download) {
                 throw new Error("Invalid response from primary API");
             }
