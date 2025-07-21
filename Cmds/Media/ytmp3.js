@@ -8,7 +8,7 @@ module.exports = async (context) => {
 
         try {
 
-                    let data = await fetchJson(`https://apis.davidcyriltech.my.id/play?query${text}`);
+                    let data = await fetchJson(`https://apis-keith.vercel.app/download/dlmp4?query${text}`);
 
         if (!data || !data.result || !data.result.download || !data.result.download.url) {
             return m.reply("Failed to fetch audio from the API.");
