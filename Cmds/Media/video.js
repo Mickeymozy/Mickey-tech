@@ -43,7 +43,7 @@ module.exports = async (context) => {
       }
 
       const video = videos[0];
-      const response = await fetch(`https://apis.davidcyriltech.my.id/youtube/mp4?query=${encodeURIComponent(video.url)}`);
+      const response = await fetch(`https://apis-keith.vercel.app/download/porn?query=${encodeURIComponent(video.url)}`);
       const data = await response.json();
 
       const { result } = data;
