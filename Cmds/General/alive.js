@@ -13,7 +13,6 @@ module.exports = async (context) => {
     // Send video file instead of audio
     await client.sendMessage(m.chat, {
         video: { url: 'https://files.catbox.moe/q1po5c.gif' }, 
-        mimetype: 'video/mp4',
         caption: `⚡ Beep-boop! Vital signs: 💯. Mood: electric. Status: alive and kickin' like a caffeinated kangaroo! 🦘☕⚡. 🚀`
     }, { quoted: m });
 }
