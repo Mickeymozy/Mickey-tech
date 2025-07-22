@@ -12,8 +12,8 @@ module.exports = async (context) => {
     // Random audio playback
     const audioClips = [
         'https://files.catbox.moe/pprmsa.mp3',
-        'https://files.catbox.moe/kcbjye.mp3',
-        'https://files.catbox.moe/kcbjye.mp3'
+        'https://files.catbox.moe/rgdlzy.mp3',
+        'https://files.catbox.moe/rgdlzy.mp3'
     ];
 
     const randomAudio = audioClips[Math.floor(Math.random() * audioClips.length)];
