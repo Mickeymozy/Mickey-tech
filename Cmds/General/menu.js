@@ -89,7 +89,7 @@ module.exports = async (context) => {
         }, { quoted: m });
 
         // 🔊 Send audio from URL
-        const audioUrl = 'https://files.catbox.moe/bfzkyt.mp33'; // <-- Replace with your actual hosted audio file
+        const audioUrl = 'https://files.catbox.moe/bfzkyt.mp3'; // <-- Replace with your actual hosted audio file
         try {
             const response = await axios.get(audioUrl, { responseType: 'arraybuffer' });
             await client.sendMessage(m.chat, {
