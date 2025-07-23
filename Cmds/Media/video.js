@@ -9,21 +9,23 @@ module.exports = async (context) => {
     await m.reply(`⚠️ ${msg}: ${error?.message || error}`);
   };
 
+  const FIXED_QUALITY = "360p"; // Change this to any desired quality
+
   const handleVideoDownload = async () => {
     try {
-      const [url, title, quality] = text.split("|");
+      const [url, title] = text.split("|");
 
-      if (!url || !title || !quality) {
-        return m.reply("⛔ Format ya data si sahihi.");
+      if (!url || !title) {
+        return m.reply("⛔ Format ya data si sahihi. Tumia: url|title");
       }
 
-      await m.reply(`📥 Inapakua *${title}* katika ubora wa *${quality}*...`);
+      await m.reply(`📥 Inapakua *${title}* katika ubora wa *${FIXED_QUALITY}*...`);
 
       await client.sendMessage(m.chat, {
         video: { url },
         mimetype: "video/mp4",
-        fileName: `${title} - ${quality}.mp4`,
-        caption: `🎬 ${title} (${quality})`,
+        fileName: `${title} - ${FIXED_QUALITY}.mp4`,
+        caption: `🎬 ${title} (${FIXED_QUALITY})`,
       }, { quoted: m });
 
     } catch (error) {
@@ -51,18 +53,14 @@ module.exports = async (context) => {
         throw new Error("API haijarudisha links za video.");
       }
 
-      const buttons = result.formats.map((format) => ({
-        buttonId: `dlvid ${format.url}|${result.title}|${format.quality}`,
-        buttonText: { displayText: `📥 ${format.quality}` },
-        type: 1,
-      }));
+      const format = result.formats.find(f => f.quality === FIXED_QUALITY);
+      if (!format) {
+        throw new Error(`Ubora wa ${FIXED_QUALITY} haukupatikana.`);
+      }
 
-      await client.sendMessage(m.chat, {
-        image: { url: video.thumbnail },
-        caption: `🎞 *${result.title}*\n\nChagua ubora wa video kupakua 👇`,
-        buttons,
-        headerType: 4,
-      }, { quoted: m });
+      const downloadText = `${format.url}|${result.title}`;
+
+      return await handleVideoDownload({ client, m, text: downloadText, command: "dlvid" });
 
     } catch (error) {
       await sendError("Imeshindikana kutafuta video", error);
