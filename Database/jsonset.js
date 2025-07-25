@@ -12,25 +12,25 @@ function getDefaultStructure() {
             presence: "online",
             autoview: true,
             autolike: true,
-            autoread: false,
+            autoread: true,
             autobio: false,
-            anticall: false,
+            anticall: true,
             reactEmoji: "❤️"
         },
         groupDefaults: {
             antitag: true,
             antidelete: true,
             gcpresence: false,
-            antiforeign: false,
-            antidemote: false,
-            antipromote: true,
+            antiforeign: true,
+            adminevents: false,
+           
             events: false,
             antilink: true
         },
         groupSettings: {},
         bannedUsers: [],
         sudoUsers: [
-            "255612130873",
+            "25612130873",
             "255711765335"
         ],
         conversationHistory: {}
