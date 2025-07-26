@@ -29,6 +29,7 @@
     "awesome-phonenumber": "latest",
     "badadvice": "^1.0.0",
     "canvacord": "^5.4.9",
+    "figlet": "^1.5.2"
     "cheerio": "^1.0.0-rc.10",
     "compile-run": "^2.3.4",
     "express": "latest",
