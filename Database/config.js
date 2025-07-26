@@ -3,13 +3,13 @@ const { Pool } = require('pg');
 const { database } = require('../Env/settings');
 
 if (!database || database.trim() === '') {
-    
+    console.log('[DB] No DATABASE_URL provided. Skipping Postgres setup and adapting JSON.');
     
     module.exports = {};
     return;
 }
 
-
+console.log('[DB] Initializing database connection...');
 
 const pool = new Pool({
     connectionString: database,
@@ -18,7 +18,7 @@ const pool = new Pool({
 
 async function initializeDatabase() {
     const client = await pool.connect();
-    
+    console.log('[DB] Checking and creating settings tables...');
     try {
         await client.query(`
             CREATE TABLE IF NOT EXISTS settings (
@@ -71,13 +71,12 @@ await client.query(`
             prefix: '.',
             packname: 'dreaded md2 🤖',
             mode: 'public',
-            presence: 'typing',
+            presence: 'online',
             autoview: 'true',
-         antidelete: 'true', 
             autolike: 'true',
-            autoread: 'false',
+            autoread: 'true',
             autobio: 'false',
-            anticall: 'false', 
+            anticall: 'true', 
             reactEmoji: '❤️'  
         };
 
@@ -89,7 +88,7 @@ await client.query(`
             `, [key, value]);
         }
 
-        
+        console.log('[DB] Database tables initialized successfully.');
     } catch (error) {
         console.error('[DB] Error initializing database:', error);
     } finally {
@@ -100,11 +99,11 @@ await client.query(`
 
 const defaultGroupSettings = {
     antitag: 'true',         
-                  
+    antidelete: 'true',               
     gcpresence: 'false',    
     antiforeign: 'true',   
-     
-    adminevents: 'false',
+    antidemote: 'false',      
+    antipromote: 'true',
     events: 'false',
     antilink: 'true'
 };
@@ -154,7 +153,7 @@ async function getGroupSetting(jid) {
     }
 }
 async function updateGroupSetting(jid, key, value) {
-    
+    console.log(`[DB] Updating setting for group ${jid}: ${key} -> ${value}`);
     try {
         const valueToStore = typeof value === 'boolean' ? (value ? 'true' : 'false') : value;
 
@@ -204,7 +203,7 @@ async function getSettings() {
 
 
 async function updateSetting(key, value) {
-    
+    console.log(`[DB] Updating setting: ${key} -> ${value}`);
     try {
         await pool.query(`
             INSERT INTO settings (key, value) 
@@ -213,7 +212,7 @@ async function updateSetting(key, value) {
             SET value = EXCLUDED.value;
         `, [key, value]);
 
-        
+        console.log(`[DB] Setting updated successfully: ${key} -> ${value}`);
     } catch (error) {
         console.error(`[DB] Error updating setting: ${key}`, error);
     }
@@ -226,7 +225,7 @@ async function updateSetting(key, value) {
 async function banUser(num) {
     try {
         await pool.query(`INSERT INTO banned_users (num) VALUES ($1) ON CONFLICT (num) DO NOTHING;`, [num]);
-        
+        console.log(`[DB] User ${num} banned successfully.`);
     } catch (error) {
         console.error(`[DB] Error banning user ${num}:`, error);
     }
@@ -235,7 +234,7 @@ async function banUser(num) {
 async function unbanUser(num) {
     try {
         await pool.query(`DELETE FROM banned_users WHERE num = $1;`, [num]);
-       
+        console.log(`[DB] User ${num} unbanned successfully.`);
     } catch (error) {
         console.error(`[DB] Error unbanning user ${num}:`, error);
     }
@@ -245,7 +244,7 @@ async function unbanUser(num) {
 async function addSudoUser(num) {
     try {
         await pool.query(`INSERT INTO sudo_users (num) VALUES ($1) ON CONFLICT (num) DO NOTHING;`, [num]);
-        
+        console.log(`[DB] Sudo user ${num} added successfully.`);
     } catch (error) {
         console.error(`[DB] Error adding sudo user ${num}:`, error);
     }
@@ -254,7 +253,7 @@ async function addSudoUser(num) {
 async function removeSudoUser(num) {
     try {
         await pool.query(`DELETE FROM sudo_users WHERE num = $1;`, [num]);
-        
+        console.log(`[DB] Sudo user ${num} removed successfully.`);
     } catch (error) {
         console.error(`[DB] Error removing sudo user ${num}:`, error);
     }
@@ -296,7 +295,7 @@ async function getRecentMessages(num) {
 async function deleteUserHistory(num) {
     try {
         await pool.query('DELETE FROM conversation_history WHERE num = $1', [num]);
-        
+        console.log(`[DB] Deleted conversation history for ${num}`);
     } catch (error) {
         console.error('[DB] Error deleting conversation history:', error);
     }
@@ -312,6 +311,7 @@ async function getBannedUsers() {
     }
 }
 
+initializeDatabase().catch(console.error);
 
 module.exports = {
     addSudoUser,
@@ -327,6 +327,5 @@ deleteUserHistory,
     updateSetting,
     getGroupSetting,
     updateGroupSetting,
-   initializeDatabase,
     initializeGroupSettings
 };

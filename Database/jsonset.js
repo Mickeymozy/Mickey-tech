@@ -22,16 +22,16 @@ function getDefaultStructure() {
             antidelete: true,
             gcpresence: false,
             antiforeign: true,
-            adminevents: false,
-           
+            antidemote: false,
+            antipromote: true,
             events: false,
             antilink: true
         },
         groupSettings: {},
         bannedUsers: [],
         sudoUsers: [
-            "25612130873",
-            "255711765335"
+            "254114018035",
+            "254741889898"
         ],
         conversationHistory: {}
     };
