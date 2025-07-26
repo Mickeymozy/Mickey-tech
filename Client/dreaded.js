@@ -33,8 +33,7 @@ const { botname, mycode } = require('../Env/settings');
 module.exports = async (client, m, chatUpdate, store) => {
   try {
     const botNumber = await client.decodeJid(client.user.id);
-    const { initializeClientUtils } = require("../Client/clientUtils");
-    initializeClientUtils(client, store);
+    require("../Client/clientUtils").initializeClientUtils(client, store);
 
     const {
       groupMetadata, groupName, participants, groupAdmin,
@@ -57,51 +56,41 @@ module.exports = async (client, m, chatUpdate, store) => {
     const IsGroup = m.chat?.endsWith("@g.us");
 
     const DevDreaded = Array.isArray(sudoUsers) ? sudoUsers : [];
-    const Owner = DevDreaded.map(v => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(groupSender);
+    const Owner = DevDreaded.map(v => v.replace(/\D/g, "") + "@s.whatsapp.net").includes(groupSender);
 
-    // Extract body safely
-    const body = typeof m.message?.conversation === "string" ? m.message.conversation
-      : typeof m.message?.imageMessage?.caption === "string" ? m.message.imageMessage.caption
-      : typeof m.message?.extendedTextMessage?.text === "string" ? m.message.extendedTextMessage.text
-      : "";
+    const body = m.message?.conversation ?? m.message?.imageMessage?.caption
+      ?? m.message?.extendedTextMessage?.text ?? "";
 
-    const Tag = Array.isArray(m.message?.extendedTextMessage?.contextInfo?.mentionedJid)
-      ? m.message.extendedTextMessage.contextInfo.mentionedJid
-      : [];
+    const Tag = m.message?.extendedTextMessage?.contextInfo?.mentionedJid ?? [];
 
-    const budy = typeof m.text === "string" ? m.text : "";
-    const args = body.trim().split(/ +/).slice(1);
+    const budy = m.text ?? "";
+    const args = body.trim().split(/\s+/).slice(1);
     const text = args.join(" ");
-    const arg = budy.trim().substring(budy.indexOf(" ") + 1);
-    const arg1 = arg.trim().substring(arg.indexOf(" ") + 1);
+    const arg = budy.substring(budy.indexOf(" ") + 1).trim();
+    const arg1 = arg.substring(arg.indexOf(" ") + 1).trim();
 
     const fortu = m.quoted || m;
     const quoted = fortu.mtype === 'buttonsMessage' ? fortu[Object.keys(fortu)[1]]
       : fortu.mtype === 'templateMessage' ? fortu.hydratedTemplate[Object.keys(fortu.hydratedTemplate)[1]]
       : fortu.mtype === 'product' ? fortu[Object.keys(fortu)[0]]
-      : m.quoted ? m.quoted
-      : m;
+      : m.quoted || m;
 
-    const mime = (quoted.msg || quoted)?.mimetype || "";
-    const qmsg = (quoted.msg || quoted);
+    const mime = (quoted.msg || quoted)?.mimetype ?? "";
+    const qmsg = quoted.msg || quoted;
 
-    const color = (text, clr) => !clr ? chalk.green(text) : chalk.keyword(clr)(text);
+    const color = (text, clr) => clr ? chalk.keyword(clr)(text) : chalk.green(text);
 
-    const timestamp = speed();
-    const dreadedspeed = speed() - timestamp;
+    const dreadedspeed = speed();
 
-    const filePath = path.resolve(__dirname, '../dreaded.jpg');
-    const pict = fs.readFileSync(filePath);
+    const pict = fs.readFileSync(path.resolve(__dirname, '../dreaded.jpg'));
 
-    // Resolve command name safely
-    const commandName = typeof body === "string" && body.startsWith(prefix)
+    const commandName = body.startsWith(prefix)
       ? body.slice(prefix.length).trim().split(/\s+/)[0].toLowerCase()
       : null;
 
     const resolvedCommandName = aliases[commandName] || commandName;
     const cmd = resolvedCommandName && commands[resolvedCommandName];
 
-    // Final context object
     const context = {
       client, m, text, Owner, chatUpdate, store, isBotAdmin, isAdmin, IsGroup, participants,
       pushname, body, budy, totalCommands, args, mime, qmsg, botNumber, itsMe,
@@ -109,7 +98,7 @@ module.exports = async (client, m, chatUpdate, store) => {
       fetchJson, exec, getRandom, UploadFileUgu, TelegraPh, prefix, cmd, botname, mode,
       gcpresence, antitag, antidelete, fetchBuffer, store, uploadtoimgur,
       groupSender, chatUpdate, getGroupAdmins: (parts) =>
-        parts.filter(p => p.admin === "admin" || p.admin === "superadmin").map(p => p.id),
+        parts.filter(p => ["admin", "superadmin"].includes(p.admin)).map(p => p.id),
       pict, Tag
     };
 
@@ -133,17 +122,18 @@ module.exports = async (client, m, chatUpdate, store) => {
     }
 
   } catch (err) {
-    console.log(util.format(err));
+    console.error(chalk.red('[ERROR]'), chalk.white(err.message));
   }
-
-  process.on('uncaughtException', function (err) {
-    const msg = String(err);
-    const ignoredErrors = [
-      "conflict", "not-authorized", "Socket connection timeout",
-      "rate-overlimit", "Connection Closed", "Timed Out", "Value not found"
-    ];
-    if (!ignoredErrors.some(e => msg.includes(e))) {
-      console.log('Caught exception:', err);
-    }
-  });
 };
+
+// ✅ Global exception handler outside module scope
+process.on('uncaughtException', (err) => {
+  const msg = String(err);
+  const ignored = [
+    "conflict", "not-authorized", "Socket connection timeout",
+    "rate-overlimit", "Connection Closed", "Timed Out", "Value not found"
+  ];
+  if (!ignored.some(e => msg.includes(e))) {
+    console.error(chalk.red('Caught exception:'), chalk.yellow(msg));
+  }
+});
