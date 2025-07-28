@@ -69,8 +69,8 @@ _Use this info to explore or install the package via terminal_`;
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363238139244263@newsletter',
-                            newsletterName: 'FLASH-MD',
+                          newsletterJid: '120363422552152940@newsletter',
+                          newsletterName: 'MICKEY-TECH',
                             serverMessageId: -1
                         }
                     }
@@ -108,13 +108,13 @@ _Use this info to explore or install the package via terminal_`;
         await sock.sendMessage(chatId, {
           video: { url: data.BK9.high },
           caption: "🎥 *FLASH-MD* Video Downloader (High Quality)",
-          contextInfo: {
-            forwardingScore: 1,
-            isForwarded: true,
-            forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
-              serverMessageId: -1
+           contextInfo: {
+                        forwardingScore: 1,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                          newsletterJid: '120363422552152940@newsletter',
+                          newsletterName: 'MICKEY-TECH',
+                            serverMessageId: -1
             }
           }
         }, { quoted: msg });
@@ -163,13 +163,13 @@ _Use this info to explore or install the package via terminal_`;
         for (const stickerUrl of data.stickers) {
           await sock.sendMessage(chatId, {
             sticker: { url: stickerUrl },
-            contextInfo: {
-              forwardingScore: 1,
-              isForwarded: true,
-              forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363238139244263@newsletter',
-                newsletterName: 'FLASH-MD',
-                serverMessageId: -1
+             contextInfo: {
+                        forwardingScore: 1,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                          newsletterJid: '120363422552152940@newsletter',
+                          newsletterName: 'MICKEY-TECH',
+                            serverMessageId: -1
               }
             }
           }, { quoted: msg });
@@ -230,7 +230,7 @@ _Use this info to explore or install the package via terminal_`;
         }, { quoted: msg });
       }
 
-      const caption = `*🔞 THE FLASH-MD X-Video Downloader 🥵*\n\n` +
+      const caption = `*🔞 MICKEY-TECH-Video Downloader 🥵*\n\n` +
                       `• *Title:* ${videoData.title}\n` +
                       `• *Duration:* ${videoData.duration}s\n` +
                       `• *Info:* ${videoData.info}\n` +
@@ -239,13 +239,13 @@ _Use this info to explore or install the package via terminal_`;
       await sock.sendMessage(chatId, {
         video: { url: highQualityUrl },
         caption,
-        contextInfo: {
-          forwardingScore: 1,
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363238139244263@newsletter',
-            newsletterName: 'FLASH-MD',
-            serverMessageId: -1
+         contextInfo: {
+                        forwardingScore: 1,
+                        isForwarded: true,
+                        forwardedNewsletterMessageInfo: {
+                          newsletterJid: '120363422552152940@newsletter',
+                          newsletterName: 'MICKEY-TECH',
+                            serverMessageId: -1
           }
         }
       }, { quoted: msg });
@@ -324,8 +324,8 @@ _Use this info to explore or install the package via terminal_`;
       forwardingScore: 1,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363238139244263@newsletter',
-        newsletterName: 'FLASH-MD',
+       newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
         serverMessageId: -1
       }
     };
@@ -474,8 +474,8 @@ _Use this info to explore or install the package via terminal_`;
       forwardingScore: 1,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363238139244263@newsletter',
-        newsletterName: 'FLASH-MD',
+        newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
         serverMessageId: -1
       }
     };
@@ -499,7 +499,7 @@ _Use this info to explore or install the package via terminal_`;
 
           await sock.sendMessage(chatId, {
             video: { url: result.hd },
-            caption: "_╰►FB VIDEO DOWNLOADED BY_ *FLASH-MD*",
+            caption: "_╰►FB VIDEO DOWNLOADED BY_ *MICKEY-TECH*",
             contextInfo
           }, { quoted: msg });
         })
@@ -530,8 +530,8 @@ _Use this info to explore or install the package via terminal_`;
       forwardingScore: 1,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363238139244263@newsletter',
-        newsletterName: 'FLASH-MD',
+        newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
         serverMessageId: -1
       }
     };
@@ -555,7 +555,7 @@ _Use this info to explore or install the package via terminal_`;
 
           await sock.sendMessage(chatId, {
             video: { url: result.sd },
-            caption: "_╰►FACEBOOK VIDEO DOWNLOADED BY_ *FLASH-MD*",
+            caption: "_╰►FACEBOOK VIDEO DOWNLOADED BY_ *MICKEY-TECH*",
             contextInfo
           }, { quoted: msg });
         })
@@ -566,7 +566,7 @@ _Use this info to explore or install the package via terminal_`;
         });
     } catch (error) {
       await sock.sendMessage(chatId, {
-        text: "An error occurred while Flash-MD was downloading your media."
+        text: "An error occurred while mickey-tech was downloading your media."
       }, { quoted: msg });
     }
   }
@@ -586,8 +586,8 @@ _Use this info to explore or install the package via terminal_`;
       forwardingScore: 1,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363238139244263@newsletter',
-        newsletterName: 'FLASH-MD',
+        newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
         serverMessageId: -1
       }
     };
@@ -656,8 +656,8 @@ _Use this info to explore or install the package via terminal_`;
       forwardingScore: 1,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363238139244263@newsletter',
-        newsletterName: 'FLASH-MD',
+        newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
         serverMessageId: -1
       }
     };
@@ -688,13 +688,13 @@ _Use this info to explore or install the package via terminal_`;
       }
 
       await sock.sendMessage(chatId, {
-        text: "FLASH-MD is sending you 5 BLACKPINK IMAGES"
+        text: "MICKEY is sending you 5 BLACKPINK IMAGES"
       }, { quoted: msg });
 
       for (const imageUrl of selectedImages) {
         await sock.sendMessage(chatId, {
           image: { url: imageUrl },
-          caption: "_╰►DOWNLOADED BY_ *FLASH-MD*",
+          caption: "_╰►DOWNLOADED BY_ *MICKEY-TECH*",
           contextInfo
         }, { quoted: msg });
       }
@@ -725,8 +725,8 @@ _Use this info to explore or install the package via terminal_`;
       forwardingScore: 1,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363238139244263@newsletter',
-        newsletterName: 'FLASH-MD',
+        newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
         serverMessageId: -1
       }
     };
@@ -804,8 +804,8 @@ const contextInfo = {
   forwardingScore: 1,
   isForwarded: true,
   forwardedNewsletterMessageInfo: {
-    newsletterJid: '120363238139244263@newsletter',
-    newsletterName: 'FLASH-MD',
+    newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
     serverMessageId: -1
   }
 };
@@ -871,8 +871,8 @@ const contextInfo = {
   forwardingScore: 1,
   isForwarded: true,
   forwardedNewsletterMessageInfo: {
-    newsletterJid: '120363238139244263@newsletter',
-    newsletterName: 'FLASH-MD',
+    newsletterJid: '120363422552152940@newsletter',
+        newsletterName: 'MICKEY-TECH',
     serverMessageId: -1
   }
 };
@@ -943,13 +943,13 @@ const contextInfo = {
       if (data.status && data.BK9 && data.BK9.high) {
         await sock.sendMessage(chatId, {
           image: { url: data.BK9.high },
-          caption: "📸 *FLASH-MD* Image Downloader (High Quality)",
+          caption: "📸  Image Downloader (High Quality)",
           contextInfo: {
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+             newsletterJid: '120363422552152940@newsletter',
+               newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -1031,13 +1031,13 @@ const contextInfo = {
                 await sock.sendMessage(chatId, {
                     text: `✅ Successfully fetched and sent APK for *${apk.name}*.
 
-_Enjoy using the app. Powered by FLASH-MD_`,
+_Enjoy using the app. `,
                     contextInfo: {
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363238139244263@newsletter',
-                            newsletterName: 'FLASH-MD',
+                            newsletterJid: '120363422552152940@newsletter',
+                            newsletterName: 'MICKEY-TECH',
                             serverMessageId: -1
                         }
                     }
@@ -1096,8 +1096,8 @@ _Enjoy using the app. Powered by FLASH-MD_`,
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363238139244263@newsletter',
-                            newsletterName: 'FLASH-MD',
+                            newsletterJid: '120363422552152940@newsletter',
+                            newsletterName: 'MICKEY-TECH',
                             serverMessageId: -1
                         }
                     }
@@ -1122,7 +1122,7 @@ _Enjoy using the app. Powered by FLASH-MD_`,
                 if (/audio\//.test(contentType)) {
                     return await sock.sendMessage(chatId, {
                         audio: buffer,
-                        caption: '> > *POWERED BY FLASH-MD*'
+                        caption: '> > *POWERED BY MICKEY*'
                     }, meta);
                 }
 
@@ -1141,7 +1141,7 @@ _Enjoy using the app. Powered by FLASH-MD_`,
                     document: buffer,
                     mimetype: contentType,
                     fileName: 'fetched_content',
-                    caption: '> > *POWERED BY FLASH-MD*'
+                    caption: '> > *POWERED BY MICKEY*'
                 }, meta);
             } catch (err) {
                 return await sock.sendMessage(chatId, {
