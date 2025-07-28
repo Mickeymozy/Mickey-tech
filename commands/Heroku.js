@@ -3,8 +3,8 @@ const Heroku = require('heroku-client');
 
 
 const OWNERS = [
-  '254742063632@s.whatsapp.net',
-  '254757835036@s.whatsapp.net'
+  '255612130873@s.whatsapp.net',
+  '255711765335@s.whatsapp.net'
 ];
 
 
