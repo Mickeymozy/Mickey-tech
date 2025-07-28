@@ -74,8 +74,8 @@ module.exports = {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363238139244263@newsletter',
-                        newsletterName: 'FLASH-MD',
+                        newsletterJid: '120363422552152940@newsletter',
+                        newsletterName: 'MICKEY-TECH',
                         serverMessageId: -1
                     }
                 }
