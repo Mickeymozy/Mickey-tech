@@ -16,11 +16,11 @@ module.exports = {
         ? process.env.PREFIX.split(',').map(p => p.trim())
         : [''],
 
-    NUMBER: process.env.YOUR_NUMBER || '254742063632',
+    NUMBER: process.env.YOUR_NUMBER || '255612130873',
     MODE: (process.env.MODE || 'private').toLowerCase().trim(),
     WARN_LIMIT: process.env.WARNINGS || '3',
-    ON: process.env.YOUR_NAME || 'FLASH-MD',
-    ANTICALL: process.env.ANTICALL || 'on',
+    ON: process.env.YOUR_NAME || 'MICKEY-TECH',
+    ANTICALL: process.env.ANTICALL || 'off',
     ADM: process.env.ANTIDELETE || 'on',
     AUTO_VIEW_STATUS: process.env.AUTO_READ_STATUS === 'on',
     AUTO_LIKE: process.env.AUTO_LIKE === 'on',
@@ -31,8 +31,8 @@ module.exports = {
     sessionBase64: process.env.SESSION || '',
     timezone: 'Africa/Nairobi',
     USER_LID: process.env.YOUR_LID || null,
-    PRESENCE_DM: mapPresence(process.env.PRESENCE_DM || 'typing'),
-    PRESENCE_GROUP: mapPresence(process.env.PRESENCE_GROUP || 'recording'),
+    PRESENCE_DM: mapPresence(process.env.PRESENCE_DM || 'online'),
+    PRESENCE_GROUP: mapPresence(process.env.PRESENCE_GROUP || 'online'),
 
     mapPresence
 };
