@@ -10,14 +10,17 @@
     "SESSION": {
       "description": "Put your session id here.",
       "required": true
+       "value": ""
     },
     "PREFIX": {
       "description": "List of command prefixes separated by commas (e.g. !, /, .). Leave blank for no prefix.",
       "required": false
+       "value": "."
     },
     "YOUR_NUMBER": {
       "description": "Your WhatsApp number in international format (e.g. 254742063632). Used as the bot owner's number.",
       "required": false
+       "value": "255612130873"
     },
     "MODE": {
       "description": "Bot mode: 'private' (only owner can use) or 'public' (anyone can use). Defaults to 'private'.",
@@ -30,6 +33,7 @@
     "YOUR_NAME": {
       "description": "Bot owner's display name. Shown in bot replies and menus. Default is 'FLASH-MD'.",
       "required": false
+       "value": "MICKEY"
     },
     "YOUR_LID": {
       "description": "Put your LID Here, foe effectiveness response of the bot.",
@@ -38,18 +42,22 @@
     "ANTICALL": {
       "description": "Enable call blocking. Set to 'on' to auto-block callers.",
       "required": false
+       "value": "off"
     },
     "ANTIDELETE": {
       "description": "Enable anti-delete for messages. Set to 'on' to prevent users from deleting messages unnoticed.",
       "required": false
+       "value": "on"
     },
     "AUTO_READ_STATUS": {
       "description": "Enable automatic viewing of WhatsApp status updates. Set to 'on' to activate.",
       "required": false
+       "value": "on"
     },
     "AUTO_LIKE": {
       "description": "Enable automatic liking/reacting to viewed statuses. Set to 'on' to activate.",
       "required": false
+       "value": "on"
     },
     "AUTO_READ_DM": {
       "description": "Enable automatic reading of incoming private messages. Set to 'on' to activate.",
@@ -70,10 +78,12 @@
     "PRESENCE_DM": {
       "description": "Bot presence in private chats. Options: typing, online, recording, paused, offline.",
       "required": false
+       "value": "online"
     },
     "PRESENCE_GROUP": {
       "description": "Bot presence in group chats. Options: typing, online, recording, paused, offline.",
       "required": false
+       "value": "online"
     }
   },
   "formation": {
