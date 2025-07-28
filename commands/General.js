@@ -91,7 +91,7 @@ module.exports = [
 
         await king.sendMessage(fromJid, {
           image: response.data,
-          caption: '*FLASH-MD WEB SCREENSHOT*'
+          caption: '*WEB SCREENSHOT*'
         }, { quoted: msg });
       } catch (error) {
         console.error('ssCommand error:', error);
@@ -166,7 +166,7 @@ module.exports = [
       const data = await response.json();
 
       await king.sendMessage(fromJid, {
-        text: `◆━━━━━━✦FACT✦━━━━━━◆\n◇ ${data.fact}\n◇ Powered by France King\n◇ KEEP USING FLASH-MD`
+        text: `◆━━━━━━✦FACT✦━━━━━━◆\n◇ ${data.fact}\n◇ Powered by Me`
       }, { quoted: msg });
     }
   },
@@ -183,7 +183,7 @@ module.exports = [
       const data = await response.json();
       const quote = data.quote;
 
-      const message = `◆━━━━━━✦QUOTE✦━━━━━━◆\n◇ "${quote.body}"\n◇ — ${quote.author}\n◇ Powered by France King\n◇ KEEP USING FLASH-MD`;
+      const message = `◆━━━━━━✦QUOTE✦━━━━━━◆\n◇ "${quote.body}"\n◇ — ${quote.author}\n◇ Powered by me`;
 
       await king.sendMessage(fromJid, { text: message }, { quoted: msg });
     }
