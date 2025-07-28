@@ -33,8 +33,8 @@ module.exports = [
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+              newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -67,8 +67,8 @@ module.exports = [
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+              newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -103,8 +103,8 @@ module.exports = [
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+              newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -148,8 +148,8 @@ module.exports = [
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+              newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -162,8 +162,8 @@ module.exports = [
               forwardingScore: 1,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363238139244263@newsletter',
-                newsletterName: 'FLASH-MD',
+                newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
                 serverMessageId: -1
               }
             }
@@ -198,10 +198,10 @@ module.exports = [
               forwardingScore: 5,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363238139244263@newsletter',
-                newsletterName: "FLASH-MD",
+                newsletterJid: '120363422552152940@newsletter',
+                newsletterName: "MICKEY-TECH",
                 serverMessageId: 143,
-                sourceUrl: 'https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P'
+                sourceUrl: 'https://chat.whatsapp.com/HJnXkPtpY2lDVi1rZilcNe'
               }
             }
           });
@@ -222,10 +222,10 @@ module.exports = [
               forwardingScore: 5,
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363238139244263@newsletter',
-                newsletterName: "FLASH-MD",
+                newsletterJid: '120363422552152940@newsletter',
+                newsletterName: "MICKEY-TECH",
                 serverMessageId: 143,
-                sourceUrl: 'https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P'
+                sourceUrl: 'https://chat.whatsapp.com/HJnXkPtpY2lDVi1rZilcNe'
               }
             }
           });
@@ -265,8 +265,8 @@ module.exports = [
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+              newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -297,7 +297,7 @@ module.exports = [
       const url = `https://flash-v2-session.onrender.com/code?number=${encodeURIComponent(number)}`;
 
       try {
-        await sock.sendMessage(chatId, { text: "*FLASH-MD is generating your pairing code...*" }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: "*Mickey-Tech is generating your pairing code...*" }, { quoted: msg });
 
         const response = await axios.get(url);
         const data = response.data;
@@ -307,13 +307,13 @@ module.exports = [
         }
 
         await sock.sendMessage(chatId, {
-          text: `*Pairing Code for ${number} is the digits below ⤵️!*\n\n> *Powered by FLASH-MD*`,
+          text: `*Pairing Code for ${number} is the digits below ⤵️!*\n\n> *Powered by me*`,
           contextInfo: {
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+              newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -347,13 +347,13 @@ module.exports = [
         }
         await sock.sendMessage(chatId, {
           image: { url },
-          caption: "*POWERED BY FLASH-MD*",
+          caption: "*ENJOY MY PROJECT*",
           contextInfo: {
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+               newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
@@ -382,13 +382,13 @@ module.exports = [
         }
         await sock.sendMessage(chatId, {
           image: { url },
-          caption: "*POWERED BY FLASH-MD*",
+          caption: "*ENJOY MY PROJECT*",
           contextInfo: {
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
+              newsletterJid: '120363422552152940@newsletter',
+              newsletterName: 'MICKEY-TECH',
               serverMessageId: -1
             }
           }
