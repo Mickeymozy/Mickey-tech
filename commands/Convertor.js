@@ -29,8 +29,8 @@ const contextInfo = {
   forwardingScore: 1,
   isForwarded: true,
   forwardedNewsletterMessageInfo: {
-    newsletterJid: '120363238139244263@newsletter',
-    newsletterName: 'FLASH-MD',
+          newsletterJid: '120363422552152940@newsletter',
+          newsletterName: 'MICKEY-TECH',
     serverMessageId: -1
   }
 };
@@ -133,15 +133,15 @@ module.exports = [
         try {
             await sock.sendMessage(chatId, {
                 image: { url: enhanceUrl },
-                caption: '*Enhanced by FLASH-MD*'
+                caption: '*Enhanced by me*'
             }, {
                 quoted: msg,
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363238139244263@newsletter',
-                        newsletterName: 'FLASH-MD',
+                        newsletterJid: '120363422552152940@newsletter',
+                        newsletterName: 'MICKEY-TECH',
                         serverMessageId: -1
                     }
                 }
