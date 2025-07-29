@@ -50,7 +50,7 @@ module.exports = [
         const message = {
           image: { url: video.thumbnail },
           caption:
-            `*FLASH-MD SONG PLAYER*\n\n` +
+            `*MICKEY-TECH SONG PLAYER*\n\n` +
             `╭───────────────◆\n` +
             `│⿻ *Title:* ${video.title}\n` +
             `│⿻ *Duration:* ${video.timestamp}\n` +
@@ -59,16 +59,7 @@ module.exports = [
             `│⿻ *Channel:* ${video.author.name}\n` +
             `╰────────────────◆\n\n` +
             `🔗 ${video.url}`,
-          contextInfo: {
-            forwardingScore: 1,
-            isForwarded: true,
-            forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
-              serverMessageId: -1
-            }
-          }
-        };
+          
 
         await king.sendMessage(fromJid, message, { quoted: msg });
 
@@ -132,7 +123,7 @@ module.exports = [
         const message = {
           image: { url: video.thumbnail },
           caption:
-            `*FLASH-MD SONG PLAYER*\n\n` +
+            `*MICKEY-TECH SONG PLAYER*\n\n` +
             `╭───────────────◆\n` +
             `│⿻ *Title:* ${video.title}\n` +
             `│⿻ *Duration:* ${video.timestamp}\n` +
@@ -141,16 +132,7 @@ module.exports = [
             `│⿻ *Channel:* ${video.author.name}\n` +
             `╰────────────────◆\n\n` +
             `🔗 ${video.url}`,
-          contextInfo: {
-            forwardingScore: 1,
-            isForwarded: true,
-            forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
-              serverMessageId: -1
-            }
-          }
-        };
+        
 
         await king.sendMessage(fromJid, message, { quoted: msg });
 
@@ -214,7 +196,7 @@ module.exports = [
         const message = {
           image: { url: video.thumbnail },
           caption:
-            `*FLASH-MD VIDEO PLAYER*\n\n` +
+            `*MICKEY-TECH VIDEO PLAYER*\n\n` +
             `╭───────────────◆\n` +
             `│⿻ *Title:* ${video.title}\n` +
             `│⿻ *Duration:* ${video.timestamp}\n` +
@@ -223,16 +205,6 @@ module.exports = [
             `│⿻ *Channel:* ${video.author.name}\n` +
             `╰────────────────◆\n\n` +
             `🔗 ${video.url}`,
-          contextInfo: {
-            forwardingScore: 1,
-            isForwarded: true,
-            forwardedNewsletterMessageInfo: {
-              newsletterJid: '120363238139244263@newsletter',
-              newsletterName: 'FLASH-MD',
-              serverMessageId: -1
-            }
-          }
-        };
 
         await king.sendMessage(fromJid, message, { quoted: msg });
 
