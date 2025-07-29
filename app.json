@@ -70,7 +70,7 @@
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key (optional). Used for auto restarts or updates from within the bot.",
       "required": false,
-      "value": ""
+      "value": "HRKU-AABOV3WN7mtXRlay3UA5Jt7SCufX59QyKIWdNxMKUMBg_____wZrtHoHR04n"
     },
     "HEROKU_APP_NAME": {
       "description": "Your Heroku app name (used with API key). Needed for Heroku-based restarts.",
