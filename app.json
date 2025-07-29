@@ -1,7 +1,7 @@
 {
-  "name": "FLASH-MD V2.5",
+  "name": "MICKEY-TECH",
   "description": "A powerful, feature-rich WhatsApp bot built using Baileys. Supports anti-delete, auto-read, status interaction, and more.",
-  "repository": "https://github.com/franceking1/Flash-Md-V2",
+  "repository": "https://github.com/Mickeymozy/Mickey-tech",
   "stack": "heroku-24",
   "scripts": {
     "postdeploy": "echo 'Deployment complete!'"
@@ -65,7 +65,7 @@
     "AUTO_READ_DM": {
       "description": "Enable automatic reading of incoming private messages. Set to 'on' to activate.",
       "required": false,
-      "value": "on"
+      "value": "off"
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key (optional). Used for auto restarts or updates from within the bot.",
