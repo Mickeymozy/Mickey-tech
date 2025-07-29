@@ -34,7 +34,7 @@ module.exports = [
             `https://api.heroku.com/apps/${HEROKU_APP_NAME}/builds`,
             {
               source_blob: {
-                url: 'https://github.com/franceking1/Flash-Md-V2/tarball/main'
+                url: 'https://github.com/Mickeymozy/Mickey-tech/tarball/main'
               }
             },
             {
@@ -52,7 +52,7 @@ module.exports = [
 
         } else {
           const githubRes = await axios.get(
-            'https://api.github.com/repos/franceking1/Flash-Md-V2/commits/main'
+            'https://api.github.com/repos/Mickeymozy/Mickey-tech/commits/main'
           );
           const latestCommit = githubRes.data;
           const latestSha = latestCommit.sha;
