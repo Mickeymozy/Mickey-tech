@@ -8,8 +8,8 @@ module.exports = [
   {
     name: 'play',
     get flashOnly() {
-  return franceking();
-},
+      return franceking();
+    },
     aliases: ['music'],
     description: 'Search and play MP3 music from YouTube (audio only).',
     category: 'Search',
@@ -58,8 +58,8 @@ module.exports = [
             `│⿻ *Uploaded:* ${video.ago}\n` +
             `│⿻ *Channel:* ${video.author.name}\n` +
             `╰────────────────◆\n\n` +
-            `🔗 ${video.url}`,
-          
+            `🔗 ${video.url}`
+        };
 
         await king.sendMessage(fromJid, message, { quoted: msg });
 
@@ -81,8 +81,8 @@ module.exports = [
   {
     name: 'song',
     get flashOnly() {
-  return franceking();
-},
+      return franceking();
+    },
     aliases: ['audiofile', 'mp3doc'],
     description: 'Search and send MP3 music as document from YouTube.',
     category: 'Search',
@@ -131,8 +131,8 @@ module.exports = [
             `│⿻ *Uploaded:* ${video.ago}\n` +
             `│⿻ *Channel:* ${video.author.name}\n` +
             `╰────────────────◆\n\n` +
-            `🔗 ${video.url}`,
-        
+            `🔗 ${video.url}`
+        };
 
         await king.sendMessage(fromJid, message, { quoted: msg });
 
@@ -154,8 +154,8 @@ module.exports = [
   {
     name: 'video',
     get flashOnly() {
-  return franceking();
-},
+      return franceking();
+    },
     aliases: ['vid', 'mp4', 'movie'],
     description: 'Search and send video from YouTube as MP4.',
     category: 'Search',
@@ -204,7 +204,8 @@ module.exports = [
             `│⿻ *Uploaded:* ${video.ago}\n` +
             `│⿻ *Channel:* ${video.author.name}\n` +
             `╰────────────────◆\n\n` +
-            `🔗 ${video.url}`,
+            `🔗 ${video.url}`
+        };
 
         await king.sendMessage(fromJid, message, { quoted: msg });
 
